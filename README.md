@@ -1,6 +1,7 @@
 # CEENbot
 
 # This is where I will be storing projects relating to the CEENbot.
+# Also, sorry about the funky identations. It seems to happen when uploading to github. 
 
 #If you are looking into this folder to learn basic functionality of the CEENbot API it is recommended
 #that you start in the following order. 
