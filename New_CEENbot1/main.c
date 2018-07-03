@@ -18,27 +18,27 @@
 void CBOT_main(void)
 {
 	//The LCD, Stepper and Attiny all need to be opened. 
-    LCD_open();
+   	LCD_open();
 	LCD_clear();
-	
+
 	ATTINY_open();
-	
+
 	STEPPER_open();
 	
-    while (1) 
-    {
+	while (1) 
+	{
 		TMRSRVC_delay_ms(100); 
-		
+
 		//Confirm that the robot is displaying the values of the sensors. 
 		int sensors = ATTINY_get_sensors();
-		
+
 		LCD_printf("%d\n", sensors);
-		
+
 		//This if statement is the main command of the firmware. 
 		if (ATTINY_get_SW_state(ATTINY_SW4) == TRUE)
 		{	
 			TMRSRVC_delay_ms(500);
-			
+
 			//This while loop will function unless the middle button is pressed again. 
 			while (ATTINY_get_SW_state(ATTINY_SW4) == FALSE)
 			{	
@@ -46,29 +46,29 @@ void CBOT_main(void)
 				STEPPER_move_stwt (STEPPER_BOTH,
 				STEPPER_FWD, 150, 200, 400, STEPPER_BRK_OFF,
 				STEPPER_FWD, 150, 200, 400, STEPPER_BRK_OFF);
-				
+
 				//Check for walls and things. 
 				int sensors = ATTINY_get_sensors();
 				LCD_printf("%d\n", sensors);
-				
+
 				//If something is detected the this action begins. 
 				if (sensors == 1 || sensors == 2 || sensors == 3)
 				{
 					LCD_printf("%d\n", sensors);
-					
+
 					//Move Backwards.
 					STEPPER_move_stwt (STEPPER_BOTH,
 					STEPPER_REV, 150, 200, 400, STEPPER_BRK_OFF,
 					STEPPER_REV, 150, 200, 400, STEPPER_BRK_OFF);
-					
+
 					//Turn
 					STEPPER_move_stwt (STEPPER_BOTH,
 					STEPPER_REV, 150 ,200, 400, STEPPER_BRK_OFF,
 					STEPPER_FWD, 150, 200, 400, STEPPER_BRK_OFF);
 				}
 			}
-			
+
 		}
-		
-    }
+
+	}
 }
