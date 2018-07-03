@@ -17,7 +17,7 @@ void CBOT_main(void)
 	LCD_clear();
 	
 	// Start the firmware.
-    while (1)
+    	while (1)
 	{
 		// The count for the upcoming loop.  
 		int i = 0;
