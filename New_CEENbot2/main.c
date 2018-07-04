@@ -58,7 +58,7 @@ void CBOT_main(void)
 				}
 			}
 			
-			//Create a Square if the square is pressed. 
+			//Create a square if the square is pressed. 
 			if (!(PSXC_DATA.buttons1 & SQR_BIT))
 			{
 					for (int i = 0; i < 4; i = i + 1)
