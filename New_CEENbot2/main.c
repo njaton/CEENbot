@@ -88,7 +88,7 @@ void CBOT_main(void)
 			
 		}
 		
-		TMRSRVC_delay_ms(2);
+    TMRSRVC_delay_ms(2);
     }
 }
 
